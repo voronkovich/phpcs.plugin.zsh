@@ -4,7 +4,7 @@ alias psr2diff='phpcs --colors -n --standard=psr2 --report=diff'
 _phpcs() {
     _arguments -s -w \
         '(-)'{-h,--help}'[Prints a usage information]' \
-        '--basepath=[A path to strip from the front of file paths inside reports]:base path:_files -/' \
+        '--basepath=[A path to strip from the front of file paths inside reports]:base path:_files' \
         '--cache[Cache results between runs]' \
         '--colors[Use colors in output]' \
         '--config-delete' \
@@ -21,14 +21,14 @@ _phpcs() {
         '--no-cache[Do not cache results between runs (this is the default)]' \
         '--no-colors[Do not use colors in output (this is the default)]' \
         '--parallel=[How many files should be checked simultaneously (default is 1)]' \
-        '--report-file=[Write the report to the specified file path]:report file:_files -/' \
+        '--report-file=[Write the report to the specified file path]:report file:_files' \
         '--report-width=[How many columns wide screen reports should be printed]:report width:("auto")' \
         '--report=[The report type]:report:("full" "xml" "checkstyle" "csv" "json" "junit" "emacs" "source" "summary" "diff" "svnblame" "gitblame" "hgblame" "notifysend")' \
         '--runtime-set' \
         '--severity=[The minimum severity required to display an error or warning]' \
         '--sniffs=[A comma separated list of sniff codes to include for checking]' \
         '--standard=[The name or path of the coding standard to use]:standard:("psr1" "psr2" "pear")' \
-        '--stdin-path=[If processing STDIN, the file path that STDIN will be processed as]:stdin path:_files -/' \
+        '--stdin-path=[If processing STDIN, the file path that STDIN will be processed as]:stdin path:_files' \
         '--tab-width=[The number of spaces each tab represents]' \
         '--version[Print version information]' \
         '--warning-severity=[The minimum severity required to display a warning]' \
@@ -46,7 +46,7 @@ _phpcs() {
         '-vv[Print ruleset and token output]' \
         '-vvv[Print sniff processing information]' \
         '-w[Print both warnings and errors (this is the default)]' \
-        '*:file:_files -/' && return 0
+        '*:file:_files' && return 0
 }
 
 compdef _phpcs phpcs
