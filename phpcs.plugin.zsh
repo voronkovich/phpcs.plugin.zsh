@@ -15,7 +15,6 @@ _phpcs() {
         '--exclude=[A comma separated list of sniff codes to exclude from checking]' \
         '--extensions=[A comma separated list of file extensions to check]' \
         '--generator=[Uses either the "HTML", "Markdown" or "Text" generator]:generator:("HTML" "Markdown" "Text")' \
-        '--help[Print a help message]' \
         '--ignore-annotations[Ignore all @codingStandard annotations in code comments]' \
         '--ignore=[A comma separated list of patterns to ignore files and directories]' \
         '--no-cache[Do not cache results between runs (this is the default)]' \
@@ -27,7 +26,7 @@ _phpcs() {
         '--runtime-set' \
         '--severity=[The minimum severity required to display an error or warning]' \
         '--sniffs=[A comma separated list of sniff codes to include for checking]' \
-        '--standard=[The name or path of the coding standard to use]:standard:("psr1" "psr2" "pear")' \
+        '--standard=[The name or path of the coding standard to use]:standard:_phpcs_standards' \
         '--stdin-path=[If processing STDIN, the file path that STDIN will be processed as]:stdin path:_files' \
         '--tab-width=[The number of spaces each tab represents]' \
         '--version[Print version information]' \
@@ -47,6 +46,10 @@ _phpcs() {
         '-vvv[Print sniff processing information]' \
         '-w[Print both warnings and errors (this is the default)]' \
         '*:file:_files' && return 0
+}
+
+_phpcs_standards() {
+    compadd $(phpcs -i | sed -e 's/The installed coding standards are //' -e 's/,//g' -e 's/ and / /' -e 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/');
 }
 
 compdef _phpcs phpcs
